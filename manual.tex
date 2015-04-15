@@ -3,7 +3,7 @@
 %boldmaths fonts, no interrupting the spaceshttps://www.sharelatex.com/project/551e9dc5a9905cd2390a7fda
 \usepackage{sidecap}
 \usepackage{tabularx}
-\usepackage[margin=0.5in]{geometry}
+\usepackage[margin=0.7in]{geometry}
 \usepackage{color}
 \usepackage{caption}
 \newcommand{\YWG}[1]{\noindent \color{blue} #1 \normalcolor}
@@ -290,9 +290,7 @@ sections of the 3D-structures,
 
 \textbf{Choose} the right 
 % path in the \textit{Labview} printing control part.
-\textit{runsheet.py} on the desktop is used to generate the printing script. Double click the \textit
-
-{runsheet.py}, then an 
+\textit{runsheet.py} on the desktop is used to generate the printing script. Double click the \textit{runsheet.py}, then an 
 user-interface will be shown on the screen. There are several parameters needed to be set:
 \begin{tabularx}{\textwidth}{XX}
   \raisebox{-\height}{\includegraphics[width=0.4\textwidth]{step11.png}}
@@ -300,64 +298,34 @@ user-interface will be shown on the screen. There are several parameters needed 
   \\
 \end{tabularx}
 \begin{itemize}
-  \item STAZ: It's the initial position of postion. the value of it should be set to \textit{initialZ} 
-
-got from section 
+  \item STAZ: It's the initial position of postion. the value of it should be set to \textit{initialZ} got from section 
   \ref{sec:printing preperation} step 7.
   \item DeltaZ: It's the thickness of each layer, which depends on your need. (unit: mm)
-  \item Number of Layers: It determines the height of the whole sample with \textit{DeltaZ}. (unit: $\mu
-
-$s)
-  \item First layer exposure time: The first layer should be exposed to the UV Led source much longer, in 
-
-order to ensure 
+  \item Number of Layers: It determines the height of the whole sample with \textit{DeltaZ}. (unit: $\mu$s)
+  \item First layer exposure time: The first layer should be exposed to the UV Led source much longer, in order to ensure 
   that the sample can be bond well with the piston. (uint: ms)
   \item Exposure Time: Other layers's exposure time. (uint: ms)
-  \item UV Voltage: It's the working voltage of the UV Led source. 4.35 shown on the picture is the 
-
-maxium value, limited by the 
+  \item UV Voltage: It's the working voltage of the UV Led source. 4.35 shown on the picture is the maxium value, limited by the 
   power supply we use.  (uint: v)
-  \item Value Voltage: It's the working voltage of the magnetic valve. Setting to 9 volts should works. 
-
-But sometimes the valve 
-  can not work at 9 volts, you should increase it a bit. Note that the maxium voltage is 12v. If it still 
-
-doesn't work, 
+  \item Value Voltage: It's the working voltage of the magnetic valve. Setting to 9 volts should works. But sometimes the valve 
+  can not work at 9 volts, you should increase it a bit. Note that the maxium voltage is 12v. If it still doesn't work, 
   please replace the valve and try again.(uint: v)
-  \item Picture Number: The picture you want to print should be named in this template: X\_0\_0\_0.png. 
-
-Note that the X in the file 
-  name is a number, and the picture is in png format. Then set this parameter to the number you name your 
-
-picture as. 
+  \item Picture Number: The picture you want to print should be named in this template: X\_0\_0\_0.png. Note that the X in the file 
+  name is a number, and the picture is in png format. Then set this parameter to the number you name your picture as. 
 \end{itemize}
-After you fullfilling in all the parameters, just click the create button and a printing script will be 
-
-generated automatically in 
-the same folder as this \textit{runsheet.py} program. It's highly recommanded to create a new folder 
-
-every time you print and put 
+After you fullfilling in all the parameters, just click the create button and a printing script will be generated automatically in 
+the same folder as this \textit{runsheet.py} program. It's highly recommanded to create a new folder every time you print and put 
 the script generated with the picture together into it.
 
 
 
 
 \subsubsection{Script introduction}
-The script is used to control the P$\mu$SL 3D printing process. Every line in the script stands for a 
-
-certain operation of 
-a certain device. Table \ref{table_script} shows the meaning of each colume. More details can be found in 
-
-file \textit{CommandFormat.xlsx} 
-with this manual. For example in line 18(underlined with red line) in \textit{Fig \ref
-
-{script_screen_shot}}, the combination of 
-the second and third column means that the target device to operate on is the \textit{UV LED}. Column 5 
-
-means the execution value 
-is 0, which equals to turning the \textit{UV LED} off. The Column 4 means the execution time, which 
-
-indicates that the \textit{UV 
+The script is used to control the P$\mu$SL 3D printing process. Every line in the script stands for a certain operation of 
+a certain device. Table \ref{table_script} shows the meaning of each colume. More details can be found in file \textit{CommandFormat.xlsx} 
+with this manual. For example in line 18(underlined with red line) in \textit{Fig \ref{script_screen_shot}}, the combination of 
+the second and third column means that the target device to operate on is the \textit{UV LED}. Column 5 means the execution value 
+is 0, which equals to turning the \textit{UV LED} off. The Column 4 means the execution time, which indicates that the \textit{UV 
 LED} should be off for 1.5 seconds.
 \begin{table}
   \begin{center}
